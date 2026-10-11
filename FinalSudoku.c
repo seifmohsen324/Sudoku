@@ -9,7 +9,10 @@ int main(){
     int condition=1;
     int row,column,number;
     printf("Please choose level\n1.Easy\n2.Medium\n3.Hard\n");
-    scanf("%d",&level);
+    if (scanf("%d",&level) != 1 || level < 1 || level > 3) {
+        printf("Invalid level.\n");
+        return 1;
+    }
     int arrEasy[9][9]={7, 3, 0,    9, 5, 0,    0, 0, 0,
                        2, 0, 0,    6, 7, 0,    5, 8, 0,
                        0, 0, 5,    0, 1, 0,    4, 0, 0,
@@ -51,9 +54,16 @@ case 1:
         int temp=0,condrow=0,condcolumn=0,cond=1;
         sudokuDraw(arrEasy);
         printf("please enter row,column,number: ");
-        scanf("%d,%d,%d",&row,&column,&number);
+        if (scanf("%d,%d,%d",&row,&column,&number) != 3) {
+            printf("\nInvalid input. Enter row,column,number.\n");
+            return 1;
+        }
         row--;
         column--;
+        if (row < 0 || row >= 9 || column < 0 || column >= 9 || number < 1 || number > 9) {
+            printf("\nValues must be in the range 1-9.\n\n");
+            continue;
+        }
         if(arrEasy[row][column]!=0){
             printf("\nwrong place\n\n");
             cond=0;
@@ -123,9 +133,16 @@ case 2:
         int temp=0,condrow=0,condcolumn=0,cond=1;
         sudokuDraw(arrMedium);
         printf("please enter row,column,number: ");
-        scanf("%d,%d,%d",&row,&column,&number);
+        if (scanf("%d,%d,%d",&row,&column,&number) != 3) {
+            printf("\nInvalid input. Enter row,column,number.\n");
+            return 1;
+        }
         row--;
         column--;
+        if (row < 0 || row >= 9 || column < 0 || column >= 9 || number < 1 || number > 9) {
+            printf("\nValues must be in the range 1-9.\n\n");
+            continue;
+        }
         if(arrMedium[row][column]!=0){
             printf("\nwrong place\n\n");
             cond=0;
@@ -195,9 +212,16 @@ case 3:
         int temp=0,condrow=0,condcolumn=0,cond=1;
         sudokuDraw(arrHard);
         printf("please enter row,column,number: ");
-        scanf("%d,%d,%d",&row,&column,&number);
+        if (scanf("%d,%d,%d",&row,&column,&number) != 3) {
+            printf("\nInvalid input. Enter row,column,number.\n");
+            return 1;
+        }
         row--;
         column--;
+        if (row < 0 || row >= 9 || column < 0 || column >= 9 || number < 1 || number > 9) {
+            printf("\nValues must be in the range 1-9.\n\n");
+            continue;
+        }
         if(arrHard[row][column]!=0){
             printf("\nwrong place\n\n");
             cond=0;
